@@ -1,0 +1,86 @@
+<!-- <div class="container  spacer"> -->
+<div class="container">
+    <div class="pt-5 text-white">      
+        <div class="py-5 mt-5">
+            <h1 class="headerH1">{{movie?.Title}}</h1>                           
+        </div>
+        <div>
+            <div class="py-5" >
+                <div>
+                    <figure class="figure-poster"><img class="single-poster" [src]="movie?.Poster"></figure>                  
+                </div>     
+            </div>
+
+            <div class="row" *ngIf="movie?.Plot !='N/A'">
+                <div class="row">
+                    <label >{{movie?.Plot}}</label>
+                </div>
+            </div>
+
+<div class="details">
+
+            <div class="row detail-row" *ngIf="movie?.Type !='N/A'">
+                <div class="row">
+                    <label>Type : {{movie?.Type}}</label>
+                </div>
+            </div>
+            
+            <div class="row detail-row" *ngIf="movie?.Type =='serie' && movie?.totalSeasons !='N/A'">
+                    <div class="row">
+                        <label>Seasons : {{movie?.totalSeasons}}</label>
+                    </div>
+                </div>
+            <div class="row detail-row" *ngIf="movie?.Genre !='N/A'">
+                    <div class="row">
+                        <label>Genre : {{movie?.Genre}}</label>
+                    </div>
+                </div>
+                <div class="row detail-row" *ngIf="movie?.Language !='N/A'">
+                        <div class="row">
+                            <label>Language : {{movie?.Language}}</label>
+                        </div>
+                    </div>
+                    <div class="row detail-row" *ngIf="movie?.Country !='N/A'">
+                            <div class="row">
+                                <label>Country : {{movie?.Country}}</label>
+                            </div>
+                        </div>
+                        <div class="row detail-row" *ngIf="movie?.Year !='N/A'">
+                                <div class="row">
+                                    <label>Year : {{movieYear}}</label>
+                                </div>
+                            </div>
+
+                            <div class="row detail-row" *ngIf="movie?.Released !='N/A'">
+                                    <div class="row">
+                                        <label>Released : {{movie?.Released}}</label>
+                                    </div>
+                                </div>
+                                <div class="row detail-row" *ngIf="movie?.Runtime !='N/A'">
+                                        <div class="row">
+                                            <label>Runtime : {{movie?.Runtime}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row detail-row" *ngIf="movie?.imdbRating && movie?.imdbRating!='N/A'">
+                                            <div class="row">
+                                                <label>Ratings : {{movie?.imdbRating}} </label>
+                                            </div>
+                                        </div>
+                                        <div class="row detail-row" *ngIf="movie?.Writer !='N/A'">
+                                                <div class="row">
+                                                    <label>Writer : {{movie?.Writer}}</label>
+                                                </div>
+                                            </div>                
+
+
+           
+                        
+                                          
+           
+                                
+                                        </div>
+           
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="pt-5" class="listing">
+        <div class="row center-block">
+            <div class="col-12">
+              <div class="portlet mbottom_15">
+                <form class="search-form" [formGroup]="searchForm">
+                  <div class="input-group ">
+                    <input type="text" class="form-control searchbarinput" placeholder="Title" aria-label="Title"
+                      formControlName="title" aria-describedby="fetcher-search" />
+                    
+                    
+
+                      <input type="text" class="form-control searchbarinput" placeholder="Year" aria-label="Year"
+                      formControlName="year" aria-describedby="fetcher-search"/>
+                     
+                      <select formControlName="type" class="form-control searchbarinput" placeholder="Type" (change)="typeSelected($event)">
+                        <option value="" hidden>Type</option>  
+                        <option value="movie">Movie</option>
+                        <option value="series">Series</option>
+                        <option value="episode">Episode</option>
+                      </select>
+
+                      <input type="text" class="form-control searchbarinput" placeholder="Poster" aria-label="Poster"
+                      formControlName="poster" aria-describedby="fetcher-search" />
+                     
+
+                     
+
+                    <div class="input-group-append">
+                      <button (click)="submitSearch()"  type="submit" class="btn search-button pleft_15 pright_15"
+                        id="fetcher-search">
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="py-5 mt-5">
+            <h1 class="headerH1">Recent Movies <small>{{moviesCount}}</small></h1>  
+                     
+        </div>
+  
+  
+       
+         
+      
+        <div class="row justify-content-md-center">
+          <div class="row align"*ngIf="error==''">
+            <div class="col-md-3 col-lg-3 " *ngFor="let movie of movieInfo; index as i">
+              <figure [routerLink]="['/','movie', movie?.imdbID]">  
+                <div class="lead-year">{{movie?.Year}}</div>               
+                <img class="lead-poster" [src]="movie?.Poster">         
+              </figure>
+              <div class="lead-title" *ngIf="movie?.Title?.length<25" [routerLink]="['/','movie', movie?.imdbID]">{{movie?.Title | uppercase }}</div>  
+              <div class="lead-title" *ngIf="movie?.Title?.length>25">{{movie?.Title | uppercase | slice:0:25 }} ...</div>
+              <!-- <div class="input-group">                     -->
+                <div class="lead-type">{{movie?.Type | uppercase}}</div> 
+              <!-- </div>  -->
+              <div class="input-group"></div>  
+             
+                                                           
+          </div>
+         
+        </div>
+        <div class="row align error" >{{error}}</div>
+        </div>
+      
+    </div>
+</div>
